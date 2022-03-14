@@ -22,7 +22,7 @@ class FiboIter():
             self.counter += 1
             return self.n2
         else:
-            if  not self.max or self.counter <= self.max:
+            if  not self.max or self.counter < self.max:
                 self.aux = self.n1 + self.n2
                 self.n1, self.n2 = self.n2, self.aux
                 self.counter += 1
@@ -30,9 +30,12 @@ class FiboIter():
             else:
                 raise StopIteration
         
+def runFiboIter(num):
+    fiboNumbers= FiboIter(num)
+    for element in fiboNumbers:
+        print(element)
+        time.sleep(0.5)
 
 if __name__ == '__main__':
-    fibonacci = FiboIter()
-    for element in fibonacci:
-        print(element)
-        time.sleep(0.3)
+    runFiboIter()
+
